@@ -17,7 +17,7 @@ type OrigText = {
     setType: Dispatch<SetStateAction<string>>,
 };
 
-export const OriginalText = createContext<OrigText | null>(null);
+export const OriginalText = createContext<OrigText | null>(null as never);
 
 export default function Home() {
   const [text, setText] = useState('');
