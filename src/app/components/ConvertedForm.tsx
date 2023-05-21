@@ -34,7 +34,9 @@ const convertStandard = (text: string): string => {
         footnotesList += `${i + 1}. ${footnotesArray[i]}
 `;
     }
-    convertedText += footnotesList;
+    if(convertedText.length > 0) {
+        convertedText += footnotesList;
+    }
     return convertedText;
 }
 const convertMFN = (text: string): string => {
@@ -71,7 +73,9 @@ const convertPrint = (text: string): string => {
         footnotesList += `${i + 1}. ${footnotesArray[i]}
 `;
     }
-    convertedText += footnotesList;
+    if(convertedText.length > 0) {
+        convertedText += footnotesList;
+    }
     return convertedText;
 }
 

@@ -28,11 +28,10 @@ export default function Home() {
     type,
     setType,
   };
-//  console.log(value.text)
 
   return (
     <main className={styles.main}>
-      <Container>
+      <Container className="mb-4">
         <h1 className="my-4">{metadata.title}</h1>
         <h2 className="mb-4 mt-3">説明</h2>
         <p>{metadata.description}</p>

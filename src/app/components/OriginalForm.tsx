@@ -11,9 +11,7 @@ function OriginalForm(props: { name: string, head: string, muted: string }) {
     const type= typeof e.currentTarget?.name === 'string' ? e.currentTarget?.name : 'standard';
     const text = typeof inputRef.current?.value === 'string' ? inputRef.current?.value : '';
     orgText?.setType(type);
-//    console.log(text)
     orgText?.setText(text);
-//    console.log(orgText?.text);
   }
 
   return (
