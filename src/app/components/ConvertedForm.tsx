@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { OriginalText } from '../page';
+import { OriginalText } from './Wrapper';
 import Form from 'react-bootstrap/Form';
 import styles from '../page.module.css';
 
