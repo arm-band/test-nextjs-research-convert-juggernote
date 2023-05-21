@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ToggleTabs from './components/ToggleTabs';
+import ConvertedForm from './components/ConvertedForm';
 
 type Value = {
     text: string,
@@ -33,7 +34,7 @@ export default function Home() {
                   <ToggleTabs />
               </Col>
               <Col lg={6}>
-
+                  <ConvertedForm />
               </Col>
             </Row>
           </Container>

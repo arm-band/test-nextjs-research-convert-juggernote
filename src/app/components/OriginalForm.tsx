@@ -1,5 +1,6 @@
-import { useContext, Dispatch, SetStateAction } from 'react';
+import { useContext, Dispatch, SetStateAction, useRef } from 'react';
 import { OriginalText } from '../page';
+import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 type Value = {
@@ -8,10 +9,14 @@ type Value = {
 };
 
 function OriginalForm(props: { name: string, head: string, muted: string }) {
+  const inputRef = useRef<HTMLTextAreaElement | null>(null);
   const orgText = useContext(OriginalText);
-  const handleChangeTextarea = (e: React.ChangeEvent<HTMLInputElement>) => {
-    orgText?.setText(e.target.value)
-    console.log(orgText?.text)
+  const handleClickSend = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    const text = typeof inputRef.current?.value === 'string' ? inputRef.current?.value : '';
+    console.log(text)
+    orgText?.setText(text);
+    console.log(orgText?.text);
   }
 
   return (
@@ -22,12 +27,21 @@ function OriginalForm(props: { name: string, head: string, muted: string }) {
         <Form.Control
             as="textarea"
             rows={10}
-            onChange={handleChangeTextarea}
+            ref={inputRef}
+            defaultValue=""
         />
         <Form.Text className="text-muted">
             {props.muted}
         </Form.Text>
       </Form.Group>
+      <Button
+        variant="primary"
+        name={props.name}
+        type="submit"
+        onClick={handleClickSend}
+      >
+        変換
+      </Button>
     </Form>
   );
 }
