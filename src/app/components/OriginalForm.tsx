@@ -18,7 +18,7 @@ function OriginalForm(props: { name: string, head: string, muted: string }) {
 
   return (
     <Form name={props.name}>
-      <h2 className="mb-4 mt-3">{props.head}</h2>
+      <h3 className="mb-4 mt-3">{props.head}</h3>
       <Form.Group className="mb-3" controlId={props.name}>
         <Form.Label>変換前テキスト</Form.Label>
         <Form.Control
