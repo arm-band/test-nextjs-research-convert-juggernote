@@ -1,22 +1,19 @@
-import { useContext, Dispatch, SetStateAction, useRef } from 'react';
+import { useContext, useRef } from 'react';
 import { OriginalText } from '../page';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
-type Value = {
-    text: string,
-    setText: Dispatch<SetStateAction<string>>,
-};
 
 function OriginalForm(props: { name: string, head: string, muted: string }) {
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
   const orgText = useContext(OriginalText);
   const handleClickSend = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    const type= typeof e.currentTarget?.name === 'string' ? e.currentTarget?.name : 'standard';
     const text = typeof inputRef.current?.value === 'string' ? inputRef.current?.value : '';
-    console.log(text)
+    orgText?.setType(type);
+//    console.log(text)
     orgText?.setText(text);
-    console.log(orgText?.text);
+//    console.log(orgText?.text);
   }
 
   return (

@@ -9,18 +9,23 @@ import Col from 'react-bootstrap/Col';
 import ToggleTabs from './components/ToggleTabs';
 import ConvertedForm from './components/ConvertedForm';
 
-type Value = {
+type OrigText = {
     text: string,
     setText: Dispatch<SetStateAction<string>>,
+    type: string,
+    setType: Dispatch<SetStateAction<string>>,
 };
 
-export const OriginalText = createContext<Value | null>(null);
+export const OriginalText = createContext<OrigText | null>(null);
 
 export default function Home() {
   const [text, setText] = useState('');
-  const value: Value = {
+  const [type, setType] = useState('');
+  const value: OrigText = {
     text,
     setText,
+    type,
+    setType,
   };
 //  console.log(value.text)
 
